@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'sumb3rk4h',
-	'password' => 'X$Y%!wW=na^o',
-	'database' => 'sumb3rk4h_skb',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'skb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
