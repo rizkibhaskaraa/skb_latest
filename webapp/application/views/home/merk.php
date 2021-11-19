@@ -65,8 +65,9 @@
                             <label class="form-label font-weight-bold" for="merk_dump">Dump</label>
                             <select name="merk_dump" id="merk_dump" class="form-control custom-select" required onchange="nominal()">
                                 <option class="font-w700" disabled="disabled" selected value="">Dump</option>
+                                <option value="Tidak">Tidak</option> 
                                 <option value="Ya">Ya</option>
-                                <option value="Tidak">Tidak</option>
+                               
                             </select>
                         </div>
                         <div class="form-group mt-1 ">
@@ -110,8 +111,9 @@
                             <label class="form-label font-weight-bold" for="merk_dump_update">Dump</label>
                             <select name="merk_dump_update" id="merk_dump_update" class="form-control custom-select" required onchange="nominal()">
                                 <option class="font-w700" disabled="disabled" selected value="">Dump</option>
-                                <option value="Ya">Ya</option>
                                 <option value="Tidak">Tidak</option>
+                                <option value="Ya">Ya</option>
+                               
                             </select>
                         </div>
                         <div class="form-group mt-1  ">
