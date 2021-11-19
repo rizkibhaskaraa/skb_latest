@@ -24,17 +24,17 @@
         </div>
     </div>
 
-    <div class="card-footer " style='background-color:#212B4E';>
+    <div class="card-footer table table-bordered text-light " style='background-color:#212B4E';>
         <div class="" style='background-color:#212B4E';>
-            <form action="<?= base_url("index.php/form/update_konfigurasi/".$akun["akun_id"])?>" method="POST">
+            <form action="<?= base_url("index.php/form/update_konfigurasi/".$akun["akun_id"])?> " method="POST">
                 <?php
                 $urut = [0,14,1,20,2,3,4,18,6,9,19,13,5,10,11,15,16,17,7,8,12];
                 $page = ["Master Data","Data Job Order","Ubah Status Job Order","Buat Invoice","Data Invoice",
                 "Data Nota Kasbon","Buat Slip Gaji","Laporan Job Order","Laporan Uang Jalan","Data Slip Supir",
                 "Mutasi Kasbon","Konfigurasi Akun","Saldo Kasbon","Buat Nota Kasbon","Buat Job Order","DB Izin","DB Operasional","DB Invoice"
                 ,"Payment Invoice","Payment Gaji","Payment JO"];?>
-                <div class="row" >
-                    <div class="col-md-6" >
+                <div class="row " >
+                    <div class="col-md-6 " >
                         <table cellspacing="0">
                             <tbody>
                                 <?php for($j=0;$j<count($urut);$j++){
