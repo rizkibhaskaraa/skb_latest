@@ -15,7 +15,7 @@
     </div>
     <div class="card-body" style='background-color:#212B4E';>
         <div class="table-responsive">
-            <table class="table table-bordered text-light" id="Table-Merk" width="100%" cellspacing="0">
+            <table class="table table-bordered text-light" id="Table-Merk" width="100%">
                 <thead>
                     <tr>
                         <th class="text-center" width="3%" scope="col">No</th>
@@ -24,7 +24,7 @@
                         <th class="text-center" width="17%" scope="col">Jenis</th>
                         <th class="text-center" width="6%" scope="col">Dump</th>
                         <th class="text-center" width="12%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="8%" scope="col">Aksi</th>
+                        <th class="text-center" width="10%" scope="col">Aksi</th>
                         <th class="text-center" width="10%" scope="col">Validasi</th>
                     </tr>
                 </thead>

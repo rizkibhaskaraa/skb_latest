@@ -616,8 +616,8 @@
                         render: function(data, type, row) {
                             let html = "";
                             if(row["validasi"]!="Pending" && row["validasi_edit"]!="Pending" && row["validasi_delete"]!="Pending"){
-                                html +="<a class='btn btn-light btn-update-merk mr-2' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-merk' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
-                                "<a class='btn btn-light btn-delete-merk' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-trash-alt'></i></a>";
+                                html +="<div class='d-flex justify-content-center'><a class='btn btn-light btn-update-merk mr-2' href='javascript:void(0)' data-toggle='modal' data-target='#popup-update-merk' data-pk='"+data+"'><i class='fas fa-pen-square'></i></a>"+
+                                "<a class='btn btn-light btn-delete-merk' href='javascript:void(0)' data-pk='"+data+"'><i class='fas fa-trash-alt'></i></a></div>";
                             }
                             return html;
                         }
