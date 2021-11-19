@@ -26,7 +26,7 @@
                         <th class="text-center" width="10%" scope="col">Dump</th>
                         <th class="text-center" width="10%" scope="col">Tahun</th>
                         <th class="text-center" width="3%" scope="col">Status Validasi</th>
-                        <th class="text-center" width="13%" scope="col">Aksi</th>
+                        <th class="text-center" width="16%" scope="col">Aksi</th>
                         <th class="text-center" width="10%" scope="col">Validasi</th>
                     </tr>
                 </thead>

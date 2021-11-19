@@ -27,7 +27,7 @@
                         <!-- <th width="13%" scope="col">Status Jalan</th> -->
                         <th width="12%" scope="col">Status</th>
                         <th class="text-center" width="12%" scope="col">Status Validasi</th>
-                        <th width="14%" scope="col">Aksi</th>
+                        <th width="16%" scope="col">Aksi</th>
                         <th width="11%" scope="col">Validasi</th>
                     </tr>
                 </thead>
