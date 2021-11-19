@@ -122,6 +122,7 @@ class Model_Home extends CI_model
 
      //function-fiunction datatable truck
         function getTruckData($postData){
+
             $tanggal_now = date("Y-m-d");
             $response = array();
         
@@ -134,27 +135,31 @@ class Model_Home extends CI_model
 
             ## Search 
             $search_arr = array();
-            $searchQuery = "";
-            if($searchValue != ''){
+            $searchQuery = "";  
+            if($searchValue != '' && strtolower($searchValue) != 'dump' && strtolower($searchValue) != 'no dump'){
                 $search_arr[] = " (mobil_no like '%".$searchValue."%' or 
                     mobil_merk like '%".$searchValue."%' or 
                     mobil_type like '%".$searchValue."%' or 
                     mobil_tahun like '%".$searchValue."%' or 
                     mobil_stnk like '%".$searchValue."%' or 
+                    mobil_dump like '%".$searchValue."%' or 
                     mobil_bpkb like '%".$searchValue."%' or 
                     mobil_no_rangka like '%".$searchValue."%' or 
                     mobil_no_mesin like '%".$searchValue."%' or 
                     mobil_jenis like '%".$searchValue."%') ";
+                    
             }
             $search_arr[] = " status_hapus='NO' ";
-            if($searchValue == 'Dump' || $searchValue == 'dump'){
+            if(strtolower($searchValue) == 'dump'){
                 $search_arr[] = " mobil_dump='Ya' ";
-            }else if($searchValue=="No Dump" || $searchValue == 'no dump'){
+            }else if(strtolower($searchValue) == 'no dump'){
                 $search_arr[] = " mobil_dump='Tidak' ";
             }
             if(count($search_arr) > 0){ //gabung kondisi where
                 $searchQuery = implode(" and ",$search_arr);
             }
+            // print_r($searchQuery);
+
         
             ## Total record without filtering
             $this->db->select('count(*) as allcount');
