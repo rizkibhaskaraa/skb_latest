@@ -17,8 +17,8 @@
                     <label for="Status" class="form-label font-weight-bold col-md-4">Status</label>
                     <select name="Status" id="Status" class="form-control selectpicker col-md-8" data-live-search="true">
                         <option class="font-w700" selected value="">Semua Status</option>
-                        <option value="Lunas">Lunas</option>
                         <option value="Belum Lunas">Belum Lunas</option>
+                        <option value="Lunas">Lunas</option>
                     </select>
                 </div>
                 <div class="mb-2 form-group row">

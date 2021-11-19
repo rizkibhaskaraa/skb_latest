@@ -36,8 +36,8 @@
                     <label class="form-label font-weight-bold" for="Jenis">Jenis Transaksi</label>
                         <select name="Jenis" id="Jenis" class="form-control custom-select" required onchange="nominal()">
                             <option class="font-w700" disabled="disabled" selected value="">Jenis Transaksi</option>
-                            <option value="Pengajuan">Pengajuan</option>
                             <option value="Pembayaran">Pembayaran</option>
+                            <option value="Pengajuan">Pengajuan</option>
                         </select>
                     </div>
                     <div class="col-md-4 col-md-offset-4 mb-4">
