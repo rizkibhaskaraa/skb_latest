@@ -31,8 +31,8 @@
                         <label class="form-label font-weight-bold col-md-5" for="invoice_ppn">PPN</label>
                         <select name="invoice_ppn" id="invoice_ppn" class="form-control col-md-7" required>
                             <option class="font-w700" disabled="disabled" selected value="">PPN</option>
-                            <option class="font-w700" value="Ya">Ya</option>
                             <option class="font-w700" value="Tidak">Tidak</option>
+                            <option class="font-w700" value="Ya">Ya</option>
                         </select>
                     </div>
                     <div class="form-group row">
