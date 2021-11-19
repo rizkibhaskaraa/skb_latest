@@ -84,8 +84,7 @@
                     </div>
                     <div class="col-md-12 mb-4 row">
                         <label class="form-label font-weight-bold col-md-5" for="jenis_tambahan">Tambahan/Potongan UJ</label>
-                        <select name="jenis_tambahan" id="jenis_tambahan" class="form-control col-md-7" onchange="tambahan(this)">
-                            <option class="font-w700" disabled="disabled" selected value="">Tambahan/Potongan UJ</option>
+                        <select name="jenis_tambahan" id="jenis_tambahan" class="form-control col-md-7" required onchange="tambahan(this)">
                             <option class="font-w700" value="Tidak Ada">Tidak Ada</option>
                             <option class="font-w700" value="Tambahan">Tambahan</option>
                             <option class="font-w700" value="Potongan">Potongan</option>
@@ -94,7 +93,7 @@
                     <div class="col-md-12 mb-4">
                         <div style="display:none" id="nominal_tambahan_id" class="row">
                             <label for="nominal_tambahan" class="form-label font-weight-bold col-md-5">Nominal Tambahan/Potongan UJ</label>
-                            <input autocomplete="off" type="text" class="form-control col-md-7" id="nominal_tambahan" name="nominal_tambahan" onkeyup="set_uj_tambahan(this),uang_format(this)">
+                            <input autocomplete="off" type="text" class="form-control col-md-7" id="nominal_tambahan" name="nominal_tambahan" required onkeyup="set_uj_tambahan(this),uang_format(this)">
                         </div>
                     </div>
                     <div class="col-md-12 mb-4 row">
