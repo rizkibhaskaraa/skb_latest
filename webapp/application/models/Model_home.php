@@ -876,6 +876,7 @@ class Model_Home extends CI_model
                 $search_arr[] = " (rute_id like '%".$searchValue."%' or 
                     rute_dari like '%".$searchValue."%' or 
                     skb_customer.customer_name like '%".$searchValue."%' or 
+                    jenis_mobil like '%".$searchValue."%' or 
                     rute_muatan like '%".$searchValue."%' or 
                     rute_ke like '%".$searchValue."%') ";
             }
