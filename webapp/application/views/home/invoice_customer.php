@@ -85,8 +85,8 @@
                             <label for="Ppn" class="form-label font-weight-bold col-md-3">PPN</label>
                             <select name="Ppn" id="Ppn" class="form-control selectpicker col-md-9" data-live-search="true">
                                 <option class="font-w700" disabled="disabled" selected value="">PPN</option>
-                                <option value="Ya">Ya</option>
                                 <option value="Tidak">Tidak</option>
+                                <option value="Ya">Ya</option>
                             </select>
                         </div>
                         <div class="row float-right mb-2 form-group text-center">
