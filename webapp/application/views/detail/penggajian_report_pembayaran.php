@@ -8,6 +8,9 @@
 <!-- tampilan detail penggajian supir -->
 <body style='background-color:#182039';> 
 <div class="mt-5 p-1 small text-light" style='background-color:#182039';>
+    <a href="<?= base_url("index.php/home/report_gaji")?>" class="btn btn-danger btn-circle mt-3">
+            <i class="fas fa-times"></i>
+        </a>
     <div class="card shadow mb-4 mt-3" style='background-color:#182039';>
         <div class="card-header d-flex align-items-center" style='background-color:#182039';>
             <h6 class="m-0 col-md-7 font-weight-bold text-light">Detail Slip Gaji</h6>
