@@ -19,6 +19,12 @@ class Model_Home extends CI_model
             return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO","validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"))->result_array();
         }
 
+        public function gettruckjenis() //all truck
+        {
+            $this->db->order_by("mobil_jenis","ASC");
+            return $this->db->get_where("skb_mobil",array("status_hapus"=>"NO","validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"))->result_array();
+        }
+
         public function getmerk() //all truck
         {
             // ,"validasi"=>"ACC","validasi_edit"=>"ACC","validasi_delete"=>"ACC"

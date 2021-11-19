@@ -21,6 +21,7 @@ class Home extends CI_Controller {
             }
             $data["supir"] = $this->model_home->getallsupir();
             $data["mobil"] = $this->model_home->gettruck();
+            $data["mobil_jenis"] = $this->model_home->gettruckjenis(); 
             $data["customer"] = $this->model_home->getallcustomer();
             $data["jo"] = $this->model_home->getjo();
             $data["page"] = "JO_page";

@@ -14,8 +14,9 @@
                                     <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
                                     <select name="Status" id="Status" class="form-control selectpicker col-md-9" data-live-search="true">
                                         <option class="font-w700" selected value="">Semua Status</option>
-                                        <option value="Dalam Perjalanan">ONGOING</option>
                                         <option value="Sampai Tujuan">DONE</option>
+                                        <option value="Dalam Perjalanan">ONGOING</option>
+                                        
                                     </select>
                                 </div>
                                 <div class="mb-2 form-group row">
@@ -41,7 +42,7 @@
                                     <select name="Jenis" id="Jenis" class="form-control selectpicker col-md-9" data-live-search="true">
                                         <option class="font-w700 font-weight-bold" disabled="disabled" selected value="">Jenis Mobil</option>
                                         <?php $isi_jenis = array();
-                                            foreach($mobil as $value){
+                                            foreach($mobil_jenis as $value){
                                             if(!in_array($value["mobil_jenis"],$isi_jenis)){
                                                 array_push($isi_jenis[] = $value["mobil_jenis"]);
                                             }
