@@ -275,6 +275,7 @@
                 "serverSide": true,
                 "ordering": true,
                 "searching":false,
+                "dom":"lpftrip",
                 "order": [
                     [1, 'desc']
                 ],
