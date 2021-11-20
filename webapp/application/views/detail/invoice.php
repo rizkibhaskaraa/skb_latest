@@ -124,7 +124,7 @@
                         <table class="table table-bordered text-light" width="100%" cellspacing="0" id="Table-Data-Invoice">
                             <thead>
                                 <tr>
-                                    <th class="text-center" width="25%" scope="col">No</th>
+                                    <th class="text-center" width="" scope="col">No</th>
                                     <th class="text-center" width="13%" scope="col">Tgl Muat</th>
                                     <th class="text-center" width="13%" scope="col">Tgl Bongkar</th>
                                     <th class="text-center" width="10%" scope="col">No. Polisi</th>
@@ -140,7 +140,7 @@
                             <?php $n=1;
                             foreach($invoice as $value){?>
                                 <tr>
-                                    <td><?= $n?></td>
+                                    <td class="text-center"><?= $n?></td>
                                     <td><?= change_tanggal($value["tanggal_muat"])?></td>
                                     <td><?= change_tanggal($value["tanggal_bongkar"])?></td>
                                     <td><?= $value["mobil_no"]?></td>

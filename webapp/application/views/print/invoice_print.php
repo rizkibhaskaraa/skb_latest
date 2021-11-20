@@ -90,7 +90,7 @@
                             <th class="text-center" width="25%" scope="col">No</th>
                             <th class="text-center" width="13%" scope="col">Tgl Muat</th>
                             <th class="text-center" width="13%" scope="col">Tgl Bongkar</th>
-                            <th class="text-center" width="10%" scope="col">Mobil</th>
+                            <th class="text-center" width="10%" scope="col">No.Polisi</th>
                             <th class="text-center" width="25%" scope="col">Muatan</th>
                             <th class="text-center" width="25%" scope="col">Dari</th>
                             <th class="text-center" width="25%" scope="col">Ke</th>
@@ -123,7 +123,7 @@
                                 <td>Rp.<?= number_format($invoice[0]["ppn"],2,',','.')?></td>
                             </tr>
                             <tr>
-                                <td colspan=8>Jumlah</td>
+                                <td colspan=8>Grand Total</td>
                                 <td>Rp.<?= number_format($invoice[0]["grand_total"],2,',','.')?></td>
                             </tr>
                         <?php }?>
