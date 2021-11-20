@@ -8,23 +8,6 @@
                 </div>
 
 
-                <div class="container-fluid mt-2 mb-2">
-                <form method="POST" action="<?= base_url("index.php/print_berkas/invoice_excel/")?>" id="convert_form" class="mr-3">
-                        <input type="hidden" name="file_content" id="file_content">
-                        <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split float-right">
-                            <span class="icon text-white-100">  
-                                <i class="fas fa-print"></i>
-                            </span>
-                            <span class="text">Excel</span>
-                        </button>
-                    </form>
-                    <a type="submit" class="btn btn-info btn-sm btn-icon-split float-right mr-3" onclick="print_pdf()">
-                        <span class="icon text-white-100">  
-                            <i class="fas fa-print"></i>
-                        </span>
-                        <span class="text">Print/PDF</span>
-                    </a>
-                </div>
                     <div class="w-50 m-auto">
                         <div class="mb-2 mt-3 form-group row">
                             <label for="Status" class="form-label font-weight-bold col-md-3">Status</label>
@@ -105,6 +88,30 @@
                     <div class="card shadow mb-4 mt-3">
                         <!-- tabel Seluruh invoice-->
                         <div class="card-body " style='background-color:#182039';> 
+                        
+
+                                <div class="pdfdanexcel">
+                                    <form method="POST" action="<?= base_url("index.php/print_berkas/invoice_excel/")?>" id="convert_form" class="">
+                                            <input type="hidden" name="file_content" id="file_content">
+                                            <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split float-right">
+                                                <span class="icon text-white-100">  
+                                                    <i class="fas fa-print"></i>
+                                                </span>
+                                                <span class="text">Excel</span>
+                                            </button>
+                                        </form>
+                                        <a type="submit" class="btn btn-info btn-sm btn-icon-split float-right mr-3" onclick="print_pdf()">
+                                            <span class="icon text-white-100">  
+                                                <i class="fas fa-print"></i>
+                                            </span>
+                                            <span class="text">Print/PDF</span>
+                                        </a>
+                                </div>
+
+
+
+
+
                             <div class="table-responsive">
                                 <table class="table table-bordered text-light" id="Table-Seluruh-Invoice" width="100%" cellspacing="0">
                                     <thead>
