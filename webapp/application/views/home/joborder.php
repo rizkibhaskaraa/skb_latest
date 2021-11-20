@@ -101,7 +101,7 @@
                             <input type="text" class="form-control font-weight-bolder" id="ditemukan" readonly value="<?= count($jo).' Data' ?>">
                         </div>
                     </div> -->
-                    <div class="d-flex justify-content-center mb-3">
+                    <div class="d-flex justify-content-center">
                         <button type="submit" name="convert" id="convert" class="btn btn-success btn-sm btn-icon-split mr-2">
                             <span class="icon text-white-100">  
                                 <i class="fas fa-print"></i>
