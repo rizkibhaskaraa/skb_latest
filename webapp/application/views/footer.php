@@ -2501,6 +2501,7 @@
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
+                "dom":"lpftrip",
                 "searching": false,
                 "order": [
                     [2, 'desc']
