@@ -9,9 +9,13 @@ function change_tanggal($tanggal){
 }
 ?>
 <body style='background-color:#182039';> 
-            <div class="mt-5 p-1 text-light" style='background-color:#182039';>
-            <h4 class=" p-2 mt-5 font-weight-bold text-light  ">Konfirmasi Job Order</h4>
-                <div class="row mt-5">
+            
+            <div class="mt-4  text-light" style='background-color:#182039';>
+                <a href="<?= base_url("index.php/home")?>" class="btn btn-danger btn-circle mt-5 ml-3">
+                    <i class="fas fa-times"></i>
+                </a>
+            <h4 class=" p-3 mt-5 font-weight-bold text-light  ">Konfirmasi Job Order</h4>
+                <div class="row m-1">
                     <div class="col-md-6">
                         <table class="table table-bordered text-light">
                             <tbody>
