@@ -121,15 +121,24 @@
             type: "GET",
             url: "<?php echo base_url('index.php/home/no_invoice') ?>",
             dataType: "text",
+            async:false,
             data: {
                 customer_name: nama_customer
             },
             success: function(data) {
+                var angka = "";
+                if(parseInt(data)<10){
+                    angka = "00"+data;
+                }else if(parseInt(data)<100 && parseInt(data)>10){
+                    angka = "0"+data;
+                }else{
+                    angka = data;
+                }
                 var date = new Date();
                 if(date.getMonth()<10){
-                    $("#invoice_id").val(data+"-"+"SKB"+"-0"+(date.getMonth()+1)+"-"+date.getFullYear());
+                    $("#invoice_id").val(angka+"-"+"SKB"+"-0"+(date.getMonth()+1)+"-"+date.getFullYear());
                 }else{
-                    $("#invoice_id").val(data+"-"+"SKB"+"-"+(date.getMonth()+1)+"-"+date.getFullYear());
+                    $("#invoice_id").val(angka+"-"+"SKB"+"-"+(date.getMonth()+1)+"-"+date.getFullYear());
                 }
             }
         })
@@ -144,4 +153,5 @@
            $("#"+a.id).val("");
        }
     }
+    
 </script>

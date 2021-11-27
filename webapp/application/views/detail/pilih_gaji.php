@@ -34,7 +34,7 @@
                             </select>
                         </div>
                         <div class="form-group row">
-                            <label for="nopol" class="col-form-label col-sm-7 font-weight-bold">Bo Polisi</label>
+                            <label for="nopol" class="col-form-label col-sm-7 font-weight-bold">No Polisi</label>
                             <select name="nopol" id="nopol" class="form-control col-sm-5 selectpicker" data-live-search="true" required onchange="redirect_url(this)">
                                 <?php if($mobil["mobil_no"]=="No Polisi"){?>
                                     <option class="font-w700" disabled="disabled" selected value="x"><?= $mobil["mobil_no"]?></option>
@@ -301,32 +301,40 @@
                 kasbon_bayar = 0;
             }
             if(parseInt(kasbon)<parseInt(kasbon_bayar)){
+                var total = parseInt($("#gaji_total").val().replaceAll(".",""))+parseInt(bonus);
+                $( '#kasbon' ).val("");
+                $("#gaji_grand_total").val(rupiah(total));
                 Swal.fire({
                     title: "Peringatan",
                     icon: "error",
                     text: 'Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon),
                     type: "error"
                 });
-                $( '#kasbon' ).val("");
-                $("#gaji_grand_total").val(rupiah(total));
-            }else{
+            }else if(parseInt(total)<parseInt(kasbon_bayar)){
+                if($("#gaji_total").val() == "0"){
+                    Swal.fire({
+                        title: "Peringatan",
+                        icon: "error",
+                        text: 'Silakan Pilih Perjalanan Supir',
+                        type: "error"
+                    });
+                    $( '#kasbon' ).val("");
+                    $("#gaji_grand_total").val(rupiah(total));
+                }else{
+                    Swal.fire({
+                        title: "Peringatan",
+                        icon: "error",
+                        text: 'Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon),
+                        type: "error"
+                    });
+                    $( '#kasbon' ).val("");
+                    $("#gaji_grand_total").val(rupiah(total));
+                }
+            } else{
                 var gaji_grand_total = parseInt(total)-parseInt(kasbon_bayar);
                 $("#gaji_grand_total").val(rupiah(gaji_grand_total));
             }
             
-            if(parseInt(total)<parseInt(kasbon_bayar)){
-                Swal.fire({
-                    title: "Peringatan",
-                    icon: "error",
-                    text: 'Jumlah Potong Kasbon Harus Lebih Kecil Dari Rp.'+ rupiah(kasbon),
-                    type: "error"
-                });
-                $( '#kasbon' ).val("");
-                $("#gaji_grand_total").val(rupiah(total));
-            }else{
-                var gaji_grand_total = parseInt(total)-parseInt(kasbon_bayar);
-                $("#gaji_grand_total").val(rupiah(gaji_grand_total));
-            }
         }
         function bonus_nilai(a){
             if($("#"+a.id).val().length>1){

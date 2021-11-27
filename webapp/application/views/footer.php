@@ -1159,12 +1159,12 @@
                                         id : data,
                                     },
                                     success: function(data_hasil) { //jika ambil data_hasil sukses
-                                        // if(data_hasil>0){
-                                            // html += "<a class='btn btn-light btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
-                                        // }else{
-                                                // html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                        if(data_hasil>0 && row["status"]!="Sampai Tujuan"){
+                                            html += "<a class='btn btn-light btn-sm ml-1 mr-1 btn-alert-edit-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
+                                        }else{
+                                            // html += "<a class='btn btn-light btn-update-jo' data-toggle='modal' data-target='#popup-update-jo' href='javascript:void(0)' data-pk="+data+"><i class='fas fa-pen-square'></i></a>";
                                             html += "<a class='btn btn-light btn-sm ml-1 mr-1' href='<?= base_url('index.php/form/edit_jo/')?>"+data+"'><i class='fas fa-pen-square'></i></a>";
-                                        // }
+                                        }
                                     }
                                 })
                                 
@@ -1640,6 +1640,26 @@
                             }
                         });
                     }
+                }else{
+                    table.ajax.reload();
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo base_url('index.php/home/getditemukanbon') ?>",
+                            dataType: "text",
+                            data: {
+                                Status : $('#Status').val(),
+                                Supir : $('#Supir').val(),
+                                Tanggal1 : $('#Tanggal1').val(),
+                                Tanggal2 : $('#Tanggal2').val(),
+                                No_Bon1 : $('#No_Bon1').val(),
+                                No_Bon2 : $('#No_Bon2').val(),
+                                No_Bon3 : $('#No_Bon3').val(),
+                                No_Bon4 : $('#No_Bon4').val(),
+                            },
+                            success: function(data) { //jika ambil data sukses
+                                $("#ditemukan").text(data);
+                            }
+                        });
                 }
             });
         });
@@ -2737,6 +2757,30 @@
                             }
                         });
                     }
+                }else{
+                    table.ajax.reload();
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo base_url('index.php/home/getditemukaninvoice') ?>",
+                            dataType: "text",
+                            data: {
+                                Status : $('#Status').val(),
+                                Customer : $('#Customer').val(),
+                                Ppn : $('#Ppn').val(),
+                                Tanggal_Top : $('#Tanggal_Top').val(),
+                                Tanggal1 : $('#Tanggal1').val(),
+                                Tanggal2 : $('#Tanggal2').val(),
+                                No_Invoice1 : $('#No_Invoice1').val(),
+                                No_Invoice2 : $('#No_Invoice2').val(),
+                                No_Invoice3 : $('#No_Invoice3').val(),
+                                No_Invoice4 : $('#No_Invoice4').val(),
+                            },
+                            success: function(data) { //jika ambil data sukses
+                                hasil = data.split("=");
+                                $("#ditemukan").text(hasil[0]);
+                                $("#tagihan").text(hasil[1]);
+                            }
+                        });
                 }
             });
         });
@@ -3284,6 +3328,7 @@
             var delete_satuan = '<?= $this->session->flashdata('status-delete-satuan'); ?>';
             var merk = '<?= $this->session->flashdata('status-add-merk'); ?>';
             var invoice = '<?= $this->session->flashdata('status-insert-invoice'); ?>';
+            var bon = '<?= $this->session->flashdata('insert-bon'); ?>';
             var gaji = '<?= $this->session->flashdata('status-insert-slip-gaji'); ?>';
             var update_merk = '<?= $this->session->flashdata('status-update-merk'); ?>';
             var delete_merk = '<?= $this->session->flashdata('status-delete-merk'); ?>';
@@ -3350,6 +3395,15 @@
                         title: "Berhasil",
                         icon: "success",
                         text: "Menambahkan Invoice baru",
+                        type: "success",
+                        timer: 2000
+                    });
+            }
+            if(bon == "Berhasil"){
+                Swal.fire({
+                        title: "Berhasil",
+                        icon: "success",
+                        text: "Menambahkan Bon baru",
                         type: "success",
                         timer: 2000
                     });

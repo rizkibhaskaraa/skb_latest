@@ -20,9 +20,9 @@
             <div class="conatainer w-50 m-auto p-3">
                 <div class="mb-2 form-group row mt-3">
                     <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal Bon</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-4 " id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                    <input autocomplete="off" type="text" class="form-control col-md-4 " id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)" onchange="cek_tanggal(this)">
                     <h5 class="mr-2 mt-1 ml-2">s/d</h5>
-                    <input autocomplete="off" type="text" class="form-control col-md-4" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
+                    <input autocomplete="off" type="text" class="form-control col-md-4" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)" onchange="cek_tanggal(this)">
                 </div>
                 <div class="mb-2 form-group row">
                     <label class="form-label font-weight-bold col-md-3" for="Supir">Supir</label>
@@ -48,18 +48,18 @@
                     <input autocomplete="off" type="text" class="form-control col-md-2 mb-1 mr-md-1 mb-md-0" id="No_Bon2" name="No_Bon2" value="BON" readonly>
                     <select class="form-control col-md-2 mb-1 mr-md-1 mb-md-0" id="No_Bon3" name="No_Bon3">
                         <option value="x">Bulan</option>
-                        <option value="01">Januari</option>
-                        <option value="02">Februari</option>
-                        <option value="03">Maret</option>
-                        <option value="04">April</option>
-                        <option value="05">Mei</option>
-                        <option value="06">Juni</option>
-                        <option value="07">Juli</option>
-                        <option value="08">Agustus</option>
-                        <option value="09">September</option>
-                        <option value="10">Oktober</option>
-                        <option value="11">November</option>
-                        <option value="12">Desember</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <select class="form-control col-md-2" id="No_Bon4" name="No_Bon4">
                         <option value="x">Tahun</option>
@@ -265,4 +265,26 @@
     function nominal(a){
         $( '#'+a.id ).mask('000.000.000', {reverse: true});
     }
+</script>
+<script>
+    function cek_tanggal(a){
+            var tanggal_muat = Date.parse(change_tanggal($("#Tanggal1").val()));
+            var tanggal_bongkar = Date.parse(change_tanggal($("#Tanggal2").val()));
+            if(tanggal_muat > tanggal_bongkar){
+                alert("Tanggal Bongkar Harus Lebih Dari Tanggal Muat");
+                $("#Tanggal1").val("");
+                $("#Tanggal2").val("");
+            }
+        }
+        function change_tanggal(data){
+            if(data=="" || data==null){
+                return "";
+            }else if(data=="0000-00-00"){
+                return "";
+            }else{
+                var data_tanggal = data.split("-");
+                var tanggal = data_tanggal[2]+"-"+data_tanggal[1]+"-"+data_tanggal[0];
+                return tanggal;
+            }
+        }
 </script>

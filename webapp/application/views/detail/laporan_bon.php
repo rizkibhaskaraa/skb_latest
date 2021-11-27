@@ -6,6 +6,9 @@
     }
 ?>
 <body class="mt-5" style='background-color:#182039';> 
+<a href="<?= base_url("index.php/home/report_bon")?>" class="btn btn-danger btn-circle m-2">
+            <i class="fas fa-times"></i>
+        </a>
 <div class="mt-5 p-2" style='background-color:#182039';>
     <div class="card shadow " style='background-color:#182039';>
         <div class="card-header " style='background-color:#182039';>

@@ -105,21 +105,21 @@
                             <td><?= $value["asal"]?></td>
                             <td><?= $value["tujuan"]?></td>
                             <td><?= $value["tonase"]?></td>
-                            <td>Rp.<?= number_format($value["tagihan"],2,',','.')?></td>
+                            <td>Rp.<?= number_format($value["tagihan"],0,',','.')?></td>
                         </tr>
                     <?php $n++;}?>
                         <tr>
-                            <td colspan=8>Total</td>
-                            <td>Rp.<?= number_format($invoice[0]["total"],2,',','.')?></td>
+                            <td colspan=8 class="text-right">Total</td>
+                            <td>Rp.<?= number_format($invoice[0]["total"],0,',','.')?></td>
                         </tr>
                         <?php if($invoice[0]["ppn"]!=0){?>
                             <tr>
-                                <td colspan=8>PPN 10%</td>
-                                <td>Rp.<?= number_format($invoice[0]["ppn"],2,',','.')?></td>
+                                <td colspan=8 class="text-right">PPN 10%</td>
+                                <td>Rp.<?= number_format($invoice[0]["ppn"],0,',','.')?></td>
                             </tr>
                             <tr>
-                                <td colspan=8>Grand Total</td>
-                                <td>Rp.<?= number_format($invoice[0]["grand_total"],2,',','.')?></td>
+                                <td colspan=8 class="text-right">Grand Total</td>
+                                <td>Rp.<?= number_format($invoice[0]["grand_total"],0,',','.')?></td>
                             </tr>
                         <?php }?>
                         <?php if($invoice[0]["ppn"]!=0){?>

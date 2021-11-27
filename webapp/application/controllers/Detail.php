@@ -301,7 +301,15 @@ class Detail extends CI_Controller {
             if(count($isi_slip_id)==0){
                 $isi_slip_id[]=0;
             }
-            $data["no_slip_gaji"]=(max($isi_slip_id)+1)."-GAJI-".date("m")."-".date('Y');
+            $max = max($isi_slip_id)+1;
+            if($max<10){
+                $angka_depan = "00".$max;
+            }else if($max<100 && $max>10){
+                $angka_depan = "0".$max;
+            }else{
+                $angka_depan = $max;
+            }
+            $data["no_slip_gaji"]=$angka_depan."-GAJI-".date("m")."-".date('Y');
             if(!isset($_SESSION["user"])){
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());

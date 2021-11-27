@@ -388,6 +388,7 @@ $keterangan = explode("===",$jo["keterangan"]);
                             }
                         })
                     }else{
+                        alert("Asdas");
                         form.submit();
                     }
                 }else{
@@ -434,6 +435,17 @@ $keterangan = explode("===",$jo["keterangan"]);
                 alert("Tanggal Bongkar Harus Lebih Dari Tanggal Muat");
                 $("#tgl_muat_update").val("");
                 $("#tgl_bongkar_update").val("");
+            }
+        }
+        function change_tanggal(data){
+            if(data=="" || data==null){
+                return "";
+            }else if(data=="0000-00-00"){
+                return "";
+            }else{
+                var data_tanggal = data.split("-");
+                var tanggal = data_tanggal[2]+"-"+data_tanggal[1]+"-"+data_tanggal[0];
+                return tanggal;
             }
         }
     </script>

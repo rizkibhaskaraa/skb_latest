@@ -122,11 +122,6 @@
                                 <td>Rp.<?= number_format($data["uang_total"],0,',','.')?></td>
                             </tr>
                             <tr>
-                                <td width="30%">Sisa UJ</td>
-                                <td width="5%">:</td>
-                                <td>Rp.<?= number_format($data["sisa"],0,',','.')?></td>
-                            </tr>
-                            <tr>
                                 <td width="30%">UJ Yang Diserahkan</td>
                                 <td width="5%">:</td>
                                 <td>Rp.<?= number_format($data["payment_jo_nominal"],0,',','.')?></td>

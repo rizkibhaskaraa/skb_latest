@@ -337,6 +337,10 @@ class Model_Detail extends CI_model
             $this->db->where("pembayaran_upah_id",$pembayaran_upah_id);
             $this->db->update("skb_pembayaran_upah",$data);
 
+            $this->db->where("pembayaran_upah_id",$pembayaran_upah_id);
+            $this->db->set("bon_nominal",$data["pembayaran_upah_bon"]);
+            $this->db->update("skb_bon");
+
             //update status upah pada jo id
                 if($data_jo != null){
                     for($i=0;$i<count($data_jo);$i++){

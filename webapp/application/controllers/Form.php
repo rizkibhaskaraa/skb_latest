@@ -77,7 +77,10 @@ class Form extends CI_Controller {
             $this->load->view('footer');
         }
 
-        public function bon(){
+        public function bon($asal){
+            if($asal=="add"){
+                $this->session->set_flashdata('insert-bon', 'Berhasil');
+            }
             $bon_id = $this->model_form->getbonid();
             $isi_bon_id = [];
             for($i=0;$i<count($bon_id);$i++){
@@ -95,7 +98,15 @@ class Form extends CI_Controller {
     			$this->session->set_flashdata('status-login', 'False');
                 redirect(base_url());
             }
-            $data["bon_id_new"] = (max($isi_bon_id)+1)."-BON-".date("m")."-".date("Y");
+            $max = max($isi_bon_id)+1;
+            if($max<10){
+                $angka_depan = "00".$max;
+            }else if($max<100 && $max>10){
+                $angka_depan = "0".$max;
+            }else{
+                $angka_depan = $max;
+            }
+            $data["bon_id_new"] =$angka_depan."-BON-".date("m")."-".date("Y");
             $data["supir"] = $this->model_home->getsupir();
             $data["page"] = "Buat_Bon_page";
             $data["collapse_group"] = "Kasbon";
@@ -194,7 +205,22 @@ class Form extends CI_Controller {
             $this->session->set_flashdata('status-insert-invoice', 'Berhasil');
             $data_jo = explode(",",$this->input->post("data_jo"));
             $this->model_form->insert_invoice($data,$data_jo);
-            redirect(base_url("index.php/home/invoice"));
+            
+            if(!isset($_SESSION["user"])){
+    			$this->session->set_flashdata('status-login', 'False');
+                redirect(base_url());
+            }
+            $data["page"] = "Invoice_page";
+            $data["collapse_group"] = "Invoice";
+            $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
+            $data["customer"] = $this->model_home->getcustomerall();
+            if(json_decode($data["akun_akses"]["akses"])[3]==0){
+                redirect(base_url());
+            }
+            $this->load->view('header',$data);
+            $this->load->view('sidebar');
+            $this->load->view('home/invoice');
+            $this->load->view('footer');
         }
         public function insert_payment_invoice(){
             $data=array(
@@ -290,7 +316,7 @@ class Form extends CI_Controller {
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["asal"] = "insert";
             $data["data_jo"] = array("Jo_id"=>"0");
-            $this->load->view("print/bon_print",$data);
+            redirect(base_url("index.php/form/bon/add"));
         }
         public function insert_akun(){
             $data_akun=array(

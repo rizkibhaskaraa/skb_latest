@@ -135,7 +135,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           
-                            <a class="dropdown-item" id="Buat_Bon_page" href="<?=base_url("index.php/form/bon")?>">
+                            <a class="dropdown-item" id="Buat_Bon_page" href="<?=base_url("index.php/form/bon/home")?>">
                             Buat Nota Kasbon
                             </a>
 

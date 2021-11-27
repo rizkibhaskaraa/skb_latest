@@ -61,7 +61,7 @@
                                 <td><?= change_tanggal($data["bon_tanggal"])?></td>
                             </tr>
                             <tr>
-                                <td width="30%">Nota Nota</td>
+                                <td width="30%">No. Nota Kasbon</td>
                                 <td width="5%">:</td>
                                 <td><?= $data["bon_id"]?></td>
                             </tr>

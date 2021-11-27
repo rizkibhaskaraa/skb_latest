@@ -85,7 +85,7 @@
                             <input autocomplete="off" type="text" class="form-control" id="mobil_merk" name="mobil_merk" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="mobil_type" class="form-label font-weight-bold">Type</label>
+                            <label for="mobil_type" class="form-label font-weight-bold">Tipe</label>
                             <input autocomplete="off" type="text" class="form-control" id="mobil_type" name="mobil_type" readonly>
                         </div>
                         <div class="form-group">
@@ -345,7 +345,7 @@
                                 <td name="mobil_merk"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Type</td>
+                                <td class="font-weight-bold">Tipe</td>
                                 <td name="mobil_type"></td>
                             </tr>
                             <tr>
@@ -357,11 +357,11 @@
                                 <td name="mobil_tahun"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Tgl.STNK 1 Tahunan</td>
+                                <td class="font-weight-bold">Masa Beralaku STNK (1 Th)</td>
                                 <td name="mobil_berlaku"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Tgl.STNK 5 Tahunan</td>
+                                <td class="font-weight-bold">Masa Beralaku STNK (5 Th)</td>
                                 <td name="mobil_pajak"></td>
                             </tr>
                         </tbody>
@@ -383,23 +383,23 @@
                                 <td name="mobil_kir"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Berlaku KIR</td>
+                                <td class="font-weight-bold">Masa Berlaku KIR</td>
                                 <td name="mobil_berlaku_kir"></td>
                             </tr>                            
                             <tr>
-                                <td class="font-weight-bold" width= "35%">No Ijin Bongkar</td>
+                                <td class="font-weight-bold" width= "35%">No Ijin Bongkar Muat</td>
                                 <td name="mobil_ijin_bongkar"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Berlaku Izin Bongkar</td>
+                                <td class="font-weight-bold">Masa Berlaku Izin Bongkar Muat</td>
                                 <td name="mobil_berlaku_ijin_bongkar"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">No Mobil Usaha</td>
+                                <td class="font-weight-bold">No Izin Usaha</td>
                                 <td name="mobil_usaha"></td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Berlaku No Mobil Usaha</td>
+                                <td class="font-weight-bold">Masa Berlaku Izin Usaha</td>
                                 <td name="mobil_berlaku_usaha"></td>
                             </tr>
                         </tbody>

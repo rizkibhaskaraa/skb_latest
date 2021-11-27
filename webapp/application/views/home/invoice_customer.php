@@ -23,9 +23,9 @@
                         </div>
                         <div class="mb-2 form-group row">
                             <label for="Tanggal" class="form-label font-weight-bold col-md-3">Tanggal Invoice</label>
-                            <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)">
+                            <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal1" name="Tanggal1" onclick="tanggal_berlaku(this)" onchange="cek_tanggal(this)">
                             <span class="align-middle mr-3 ml-3">s/d</span>
-                            <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)">
+                            <input autocomplete="off" type="text" class="form-control col-md-3" id="Tanggal2" name="Tanggal2" onclick="tanggal_berlaku(this)" onchange="cek_tanggal(this)">
                         </div>
                         <div class="mb-2 form-group row">
                             <label class="form-label font-weight-bold col-md-3" for="Customer">Customer</label>
@@ -42,18 +42,18 @@
                             <input autocomplete="off" type="text" class="form-control col-md-2" id="No_Invoice2" name="No_Invoice2" value="SKB" readonly>
                             <select class="form-control col-md-3" id="No_Invoice3" name="No_Invoice3">
                                 <option value="x">Bulan</option>
-                                <option value="01">Januari</option>
-                                <option value="02">Februari</option>
-                                <option value="03">Maret</option>
-                                <option value="04">April</option>
-                                <option value="05">Mei</option>
-                                <option value="06">Juni</option>
-                                <option value="07">Juli</option>
-                                <option value="08">Agustus</option>
-                                <option value="09">September</option>
-                                <option value="10">Oktober</option>
-                                <option value="11">November</option>
-                                <option value="12">Desember</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
                             </select>
                             <select class="form-control col-md-2" id="No_Invoice4" name="No_Invoice4">
                                 <option value="x">Tahun</option>
@@ -179,4 +179,24 @@
     function reset_form(){
         location.reload();
     }
+    function cek_tanggal(a){
+            var tanggal_muat = Date.parse(change_tanggal($("#Tanggal1").val()));
+            var tanggal_bongkar = Date.parse(change_tanggal($("#Tanggal2").val()));
+            if(tanggal_muat > tanggal_bongkar){
+                alert("Tanggal Bongkar Harus Lebih Dari Tanggal Muat");
+                $("#Tanggal1").val("");
+                $("#Tanggal2").val("");
+            }
+        }
+        function change_tanggal(data){
+            if(data=="" || data==null){
+                return "";
+            }else if(data=="0000-00-00"){
+                return "";
+            }else{
+                var data_tanggal = data.split("-");
+                var tanggal = data_tanggal[2]+"-"+data_tanggal[1]+"-"+data_tanggal[0];
+                return tanggal;
+            }
+        }
 </script>

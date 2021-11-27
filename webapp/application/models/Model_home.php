@@ -567,9 +567,11 @@ class Model_Home extends CI_model
             }
             if($searchQuery != ''){
                 $this->db->where($searchQuery);
-                $this->db->order_by("bon_tanggal", "ASC");
+                $this->db->order_by("bon_tanggal,bon_id", "ASC");
+                $this->db->order_by("bon_id", "ASC");
             }else{
                 $this->db->order_by("bon_tanggal", "DESC");
+                $this->db->order_by("bon_id", "DESC");
             }
             $this->db->where("skb_bon.status_hapus","NO");
             $this->db->limit($limit, $start);
