@@ -169,7 +169,7 @@ class Print_Berkas extends CI_Controller {
 
 		$excel = new Spreadsheet();
 
-		// 	//set properti
+			//set properti
 		$excel->getProperties()->setCreator('PT.Sumber Karya Berkah')
 		->setLastModifiedBy('PT.Sumber Karya Berkah');
 

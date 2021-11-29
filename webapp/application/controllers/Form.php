@@ -857,6 +857,76 @@ class Form extends CI_Controller {
             $this->model_form->update_JO($data,$Jo_id);
             redirect(base_url("index.php/home"));
         }
+        public function update_JO_ongoing(){
+            if($this->input->post("nominal_tambahan_update")==""){
+                $nominal_tambahan = 0;
+            }else{
+                $nominal_tambahan = str_replace(".","",$this->input->post("nominal_tambahan_update"));
+            }
+            $Jo_id=$this->input->post("Jo_id_update");
+            $data_jo = $this->model_home->getjobyid($Jo_id);
+            if($this->input->post("Kendaraan_update")==""){
+                $mobil_no = $data_jo["mobil_no"];
+            }else{
+                $mobil_no = $this->input->post("Kendaraan_update");
+            }
+            if($this->input->post("Supir_update")==""){
+                $supir_id=$data_jo["supir_id"];
+            }else{
+                $supir_id=$this->input->post("Supir_update");
+            }
+            if($this->input->post("status_update")=="Dalam Perjalanan"){
+                $data=array(
+                    "mobil_no"=>$mobil_no,
+                    "supir_id"=>$supir_id,
+                    "tanggal_surat"=>$this->change_tanggal($this->input->post("tanggal_jo_update")),
+                    "keterangan"=>$this->input->post("Keterangan_update"),
+                    "jenis_tambahan"=>$this->input->post("jenis_tambahan_update"),
+                    "nominal_tambahan"=>$nominal_tambahan,
+                    "uang_total"=>str_replace(".","",$this->input->post("uang_jalan_total_update")),
+                    "status"=>$this->input->post("status_update"),
+                    "tanggal_muat"=>null,
+                    "tanggal_bongkar"=>null,
+                    "tonase"=>null,
+                    "biaya_lain"=>null,
+                    "muatan"=>$this->input->post("Muatan"),
+                    "asal"=>$this->input->post("Asal"),
+                    "tujuan"=>$this->input->post("Tujuan"),
+                    "customer_id"=>$this->input->post("Customer_update"),
+                    "uang_jalan"=>str_replace(".","",$this->input->post("Uang_update")),
+                    "upah"=>str_replace(".","",$this->input->post("Upah_update")),
+                    "tagihan"=>str_replace(".","",$this->input->post("Tagihan_update")),
+                    "tipe_tonase"=>$this->input->post("Tipe_Tonase_update"),
+                    "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total"))
+                );
+            }else{
+                $data=array(
+                    "mobil_no"=>$mobil_no,
+                    "supir_id"=>$supir_id,
+                    "tanggal_surat"=>$this->change_tanggal($this->input->post("tanggal_jo_update")),
+                    "keterangan"=>$this->input->post("Keterangan_update")."===".$this->input->post("Keterangan_status_update"),
+                    "jenis_tambahan"=>$this->input->post("jenis_tambahan_update"),
+                    "nominal_tambahan"=>$nominal_tambahan,
+                    "uang_total"=>str_replace(".","",$this->input->post("uang_jalan_total_update")),
+                    "status"=>$this->input->post("status_update"),
+                    "tanggal_muat"=>$this->change_tanggal($this->input->post("tgl_muat_update")),
+                    "tanggal_bongkar"=>$this->change_tanggal($this->input->post("tgl_bongkar_update")),
+                    "tonase"=>str_replace(".","",$this->input->post("tonase_update")),
+                    "biaya_lain"=>str_replace(".","",$this->input->post("biaya_lain_update")),
+                    "muatan"=>$this->input->post("Muatan"),
+                    "asal"=>$this->input->post("Asal"),
+                    "tujuan"=>$this->input->post("Tujuan"),
+                    "customer_id"=>$this->input->post("Customer_update"),
+                    "uang_jalan"=>str_replace(".","",$this->input->post("Uang_update")),
+                    "upah"=>str_replace(".","",$this->input->post("Upah_update")),
+                    "tagihan"=>str_replace(".","",$this->input->post("Tagihan_update")),
+                    "tipe_tonase"=>$this->input->post("Tipe_Tonase_update"),
+                    "sisa"=>str_replace(".","",$this->input->post("uang_jalan_total"))
+                );
+            }
+            $this->model_form->update_JO($data,$Jo_id);
+            echo "Berhasil";
+        }
         public function update_payment_invoice(){
             $payment_id=$this->input->post("payment_invoice_id_update");
             $data=array(
@@ -976,8 +1046,7 @@ class Form extends CI_Controller {
             $data["supir"] = $this->model_home->getsupirbyid($data["data"]["supir_id"]);
             $data["asal"] = "Hapus JO";
             $this->model_form->deletejo($jo_id);
-            $this->session->set_flashdata("deletejo","berhasil");
-            redirect(base_url('index.php/home'));
+            redirect(base_url('index.php/home/delete'));
         }
         public function deleteinvoice($invoice_id){
             $this->model_form->deleteinvoice($invoice_id);

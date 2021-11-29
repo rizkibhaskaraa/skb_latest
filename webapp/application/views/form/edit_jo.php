@@ -156,7 +156,26 @@ $keterangan = explode("===",$jo["keterangan"]);
 </div>
 <!-- end tampilan detail penggajian supir -->
    
-
+    <div class="modal fade" id="popup-confirm" tabindex="0" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog mt-5 py-5" role="document">
+            <div class="modal-content ">
+                <div class="modal-header mb-3">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Job Order</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </div>
+                <div class="container mb-3">
+                    <h3>Yakin Anda Ingin Mengubah Data Dari Done ke Ongoing?</h3>
+                    <div class="form-group mt-1 mr-4 ">
+                        <button type="submit" class="btn btn-success float-right" onclick="confirm('yes')">Yes</button>
+                        <button type="reset" class="btn btn-outline-danger mr-3 float-md-right" onclick="confirm('no')">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -226,7 +245,7 @@ $keterangan = explode("===",$jo["keterangan"]);
     </div>
 
 
-                                </body>
+    </body>
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url("assets/vendor/jquery/jquery.min.js")?>"></script>
     <script src="<?=base_url("assets/vendor/jquery/jquery.mask.min.js")?>"></script>
@@ -346,8 +365,6 @@ $keterangan = explode("===",$jo["keterangan"]);
         data_jo_now.ton="<?= $jo["tonase"]?>";
         data_jo_now.lain="<?= number_format($jo["biaya_lain"],0,",",".")?>";
         $( "#form-edit-jo" ).submit(function( event ) {
-            event.preventDefault();
-            var form = $(this);
             data_jo_new = new Object();
             data_jo_new.tanggal=$("#tanggal_jo_update").val();
             data_jo_new.cust=$("#Customer_update").val();
@@ -370,36 +387,69 @@ $keterangan = explode("===",$jo["keterangan"]);
             data_jo_new.lain=$("#biaya_lain_update").val();  
             if(JSON.stringify(data_jo_now) == JSON.stringify(data_jo_new)){
                 alert("anda Belum Mengubah Data");
+                return false;
             }else{
                 if($("#status_update").val()=="Dalam Perjalanan"){
                     if($("#status_update").val()!="<?= $jo["status"]?>"){
-                        Swal.fire({
-                            title: 'Edit Job Order',
-                            text:'Yakin Anda Ingin Mengubah Data Dari Done ke Ongoing?',
-                            showDenyButton: true,
-                            denyButtonText: `No`,
-                            confirmButtonText: 'Yes',
-                            denyButtonColor: '#808080',
-                            confirmButtonColor: '#FF0000',
-                            icon: "warning",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                form.submit();
-                            }
-                        })
+                        $("#popup-confirm").modal('show');
+                        // Swal.fire({
+                        //     title: 'Edit Job Order',
+                        //     text:'Yakin Anda Ingin Mengubah Data Dari Done ke Ongoing?',
+                        //     showDenyButton: true,
+                        //     denyButtonText: `No`,
+                        //     confirmButtonText: 'Yes',
+                        //     denyButtonColor: '#808080',
+                        //     confirmButtonColor: '#FF0000',
+                        //     icon: "warning",
+                        // }).then((result) => {
+                        //     if (result.isConfirmed) {
+                        //         alert("asds");
+                        //         return true;
+                        //     }
+                        // })
+                        return false;
                     }else{
-                        alert("Asdas");
-                        form.submit();
+                        return true;
                     }
-                }else{
+                }
+                else{
                     if($("#tgl_muat_update").val()=="" || $("#tgl_bongkar_update").val()=="" || $("#tonase_update").val()==""){
                         alert("tgl muat,tgl bongkat,muatan akhir tidak boleh kosong");
+                        return false;
                     }else{
-                        form.submit();
+                        return true;
                     }
                 }
             }
         });
+        function confirm(x){
+            if(x=="yes"){
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url("index.php/form/update_JO_ongoing")?>",
+                    dataType: "text",
+                    data: $("#form-edit-jo").serialize(),
+                    success: function(data) {
+                        Swal.fire({
+                            title: "Berhasil",
+                            icon: "success",
+                            text: "Mengubah Data Job Order",
+                            type: "success",
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#FF0000',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.replace("<?= base_url('index.php/home')?>");
+                            }else{
+                                window.location.replace("<?= base_url('index.php/home')?>");
+                            }
+                        })
+                    }
+                });
+            }else{
+                $("#popup-confirm").modal('hide');
+            }
+        }
         function rupiah(uang){
             var bilangan = uang;
             var	number_string = bilangan.toString(),

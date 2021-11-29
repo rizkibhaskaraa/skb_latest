@@ -36,6 +36,30 @@ class Home extends CI_Controller {
             $this->load->view('footer');
         }
 
+        public function delete()
+        {
+            if(!isset($_SESSION["user"])){
+    			$this->session->set_flashdata('status-login', 'False');
+                redirect(base_url());
+            }
+            $this->session->set_flashdata("deletejo","berhasil");
+            $data["supir"] = $this->model_home->getallsupir();
+            $data["mobil"] = $this->model_home->gettruck();
+            $data["mobil_jenis"] = $this->model_home->gettruckjenis(); 
+            $data["customer"] = $this->model_home->getallcustomer();
+            $data["jo"] = $this->model_home->getjo();
+            $data["page"] = "JO_page";
+            $data["collapse_group"] = "Job_Order";
+            $data["akun_akses"] = $this->model_form->getakunbyid($_SESSION["user_id"]);
+            if(json_decode($data["akun_akses"]["akses"])[1]==0){
+                redirect(base_url());
+            }
+            $this->load->view('header',$data);
+            $this->load->view('sidebar');
+            $this->load->view('home/joborder');
+            $this->load->view('footer');
+        }
+
         public function konfirmasi_jo()
         {
             if(!isset($_SESSION["user"])){
